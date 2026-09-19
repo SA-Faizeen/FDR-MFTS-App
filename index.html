@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Interface</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+    <link href="src/output.css" rel="stylesheet" />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body
+    class="font-poppins flex min-h-screen items-center justify-center overflow-hidden bg-gray-100 p-4 antialiased"
+  >
+    <div
+      class="relative flex h-145 w-70 flex-col justify-between rounded-[42px] bg-[#0c1327] p-2 shadow-2xl"
+    >
+      <div
+        class="relative flex h-full w-full flex-col justify-between overflow-hidden rounded-[34px] bg-[#f7f7f7]"
+      >
+        <div
+          class="z-10 flex h-6 w-full items-center justify-between px-5 pt-2.5 text-[11px] font-semibold tracking-tight text-slate-800"
+        >
+          <span>09:41</span>
+          <div class="flex items-center gap-x-1">
+            <i class="ti ti-cell-signal-5 text-base"></i>
+            <i class="ti ti-battery-vertical-4 text-base"></i>
+          </div>
+        </div>
+
+        <div
+          id="loginScreen"
+          class="my-auto flex w-full flex-col justify-center px-2.5 py-3"
+        >
+          <div class="w-full space-y-4 px-1">
+            <div class="-mt-10 text-left">
+              <h1 class="text-xl font-bold tracking-tight text-slate-600">
+                Log In
+              </h1>
+              <h2
+                class="bg-linear-to-r from-[#B21F1F] via-[#E55451] to-[#FDBB2D] bg-clip-text text-2xl font-black text-transparent"
+              >
+                AminKash
+              </h2>
+            </div>
+
+            <div class="space-y-2.5 text-left">
+              <div class="space-y-1">
+                <div class="relative flex items-center">
+                  <i
+                    class="ti ti-user pointer-events-none absolute left-2.5 text-base text-gray-400"
+                  ></i>
+                  <input
+                    autocomplete="off"
+                    id="usernameInput"
+                    type="text"
+                    placeholder="Enter Username"
+                    class="login-input"
+                  />
+                </div>
+                <span
+                  id="usernameError"
+                  class="block pl-1 text-[10px] font-medium text-red-500"
+                  hidden
+                ></span>
+              </div>
+
+              <div class="space-y-1">
+                <div class="relative flex items-center">
+                  <i
+                    class="ti ti-lock pointer-events-none absolute left-2.5 text-base text-gray-400"
+                  ></i>
+                  <input
+                    autocomplete="off"
+                    id="passwordInput"
+                    type="password"
+                    placeholder="Enter Password"
+                    class="login-input"
+                  />
+                </div>
+                <span
+                  id="passwordError"
+                  class="block pl-1 text-[10px] font-medium text-red-500"
+                  hidden
+                ></span>
+              </div>
+
+              <button
+                id="submitBtn"
+                class="mt-1 w-full cursor-pointer rounded-md bg-linear-to-r from-[#CD1C18] to-[#E55451] py-1.5 text-xs font-semibold text-white shadow transition-opacity hover:opacity-95"
+              >
+                Sign In
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="balanceScreen"
+          class="flex h-full w-full flex-col items-center justify-start px-2.5 py-3 pt-4"
+          hidden
+        >
+          <div class="w-62.5">
+            <div
+              class="mt-2 w-full space-y-3 rounded-xl bg-[#0b0e1b] p-3.5 text-left text-white shadow-lg"
+            >
+              <div class="flex items-center gap-2">
+                <div
+                  class="flex h-6 w-6 items-center justify-center rounded-md bg-[#161c33] text-indigo-400"
+                >
+                  <i class="ti ti-wallet text-xs"></i>
+                </div>
+                <span
+                  class="text-[9px] font-semibold tracking-wider text-slate-400 uppercase"
+                >
+                  CURRENT BALANCE
+                </span>
+              </div>
+
+              <div class="space-y-0.5">
+                <span class="block text-[10px] font-normal text-slate-400">
+                  Current Amount
+                </span>
+                <span
+                  class="block text-base font-bold tracking-tight text-white"
+                >
+                  BDT <span id="balance">1000</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="my-3 grid w-62.5 grid-cols-2 gap-2.5">
+            <button
+              id="addMoneyBtn"
+              class="flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-2xl bg-indigo-600 p-3 text-white shadow-sm transition-all hover:bg-indigo-700 active:scale-95 active:bg-indigo-800"
+            >
+              <div
+                class="pointer-events-none flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-white/20 text-white"
+              >
+                <i class="ti ti-plus text-sm leading-none"></i>
+              </div>
+              <span
+                class="pointer-events-none text-[12px] font-bold tracking-tight whitespace-nowrap"
+                >Add Money</span
+              >
+            </button>
+
+            <button
+              id="cashOutBtn"
+              class="flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-2xl border border-slate-100 bg-white p-3 text-slate-800 shadow-sm transition-all select-none hover:bg-slate-50 active:scale-95 active:bg-slate-100"
+            >
+              <div
+                class="pointer-events-none flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-red-50 text-red-500"
+              >
+                <i class="ti ti-arrow-up-right text-sm leading-none"></i>
+              </div>
+              <span
+                class="pointer-events-none text-[12px] font-bold tracking-tight whitespace-nowrap"
+                >Cashout</span
+              >
+            </button>
+
+            <div id="addMoneyForm" class="col-span-2 space-y-1" hidden>
+              <label
+                for="addMoneyInput"
+                class="block pl-0.5 text-[10px] font-semibold tracking-wider text-gray-500 uppercase"
+              >
+                Amount
+              </label>
+              <input
+                autocomplete="off"
+                id="addMoneyInput"
+                type="text"
+                placeholder="Enter an amount to add"
+                class="w-full rounded-sm border border-gray-400 bg-white px-3 py-2 text-xs text-gray-800 placeholder-gray-400 transition-all focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none"
+              />
+              <span
+                  id="addMoneyError"
+                  class="block pl-1 text-[10px] font-medium text-red-500"
+                  hidden
+                ></span>
+              <button
+                id="addMoneySubmitBtn"
+                class="flex w-full cursor-pointer items-center justify-center gap-x-1 rounded-xl bg-indigo-600 py-2 text-xs font-bold text-white transition-all hover:bg-indigo-700 active:scale-95 active:bg-indigo-800"
+              >
+                <i class="ti ti-plus text-[13px]"></i>
+                Add Money
+              </button>
+            </div>
+            
+            <div id="cashOutForm" class="col-span-2 space-y-1" hidden>
+              <label
+                for="cashOutInput"
+                class="block pl-0.5 text-[10px] font-semibold tracking-wider text-gray-500 uppercase"
+              >
+                Amount
+              </label>
+              <input
+                autocomplete="off"
+                id="cashOutInput"
+                type="text"
+                placeholder="Enter an amount to cash out"
+                class="w-full rounded-sm border border-gray-400 bg-white px-3 py-2 text-xs text-gray-800 placeholder-gray-400 transition-all focus:border-red-500 focus:ring-1 focus:ring-red-500 focus:outline-none"
+              />
+              <span
+                  id="cashOutError"
+                  class="block pl-1 text-[10px] font-medium text-red-500"
+                  hidden
+                ></span>
+              <button
+                id="cashOutSubmitBtn"
+                class="flex w-full cursor-pointer items-center justify-center gap-x-1 rounded-xl bg-red-500 py-2 text-xs font-bold text-white transition-all hover:bg-red-600 active:scale-95 active:bg-red-700"
+              >
+                <i class="ti ti-arrow-up-right text-[13px]"></i>
+                Cashout
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pointer-events-none h-6 w-full"></div>
+      </div>
+
+      <div
+        class="absolute top-16 -left-1 h-8 w-1 rounded-l-md bg-[#0c1327]"
+      ></div>
+      <div
+        class="absolute top-26 -left-1 h-11 w-1 rounded-l-md bg-[#0c1327]"
+      ></div>
+      <div
+        class="absolute top-22 -right-1 h-12 w-1 rounded-r-md bg-[#0c1327]"
+      ></div>
+    </div>
+  </body>
+</html>
